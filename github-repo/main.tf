@@ -6,10 +6,15 @@ terraform {
     dynamodb_table = "terraformstatelocking"
     encrypt        = true
   }
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
   required_providers {
-    github = "~> 2.9.1"
-    aws = "~> 2.69"
+    github = {
+      source  = "hashicorp/github"
+      version = "~> 4.4"
+    }
+    aws = {
+      source = "hashicorp/aws"
+    }
   }
 }
 
