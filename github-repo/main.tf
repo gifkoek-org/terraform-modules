@@ -1,23 +1,3 @@
-terraform {
-  backend "s3" {
-    bucket         = "gifkoek-terraform-state"
-    key            = "modules/terraform.tfstate"
-    region         = "eu-west-1"
-    dynamodb_table = "terraformstatelocking"
-    encrypt        = true
-  }
-  required_version = ">= 0.13"
-  required_providers {
-    github = {
-      source  = "hashicorp/github"
-      version = "~> 4.4"
-    }
-    aws = {
-      source = "hashicorp/aws"
-    }
-  }
-}
-
 locals {
   # Auto-generated
   topic_teams = [for team in var.owner_teams : "team-${team}"]
