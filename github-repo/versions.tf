@@ -1,7 +1,8 @@
 terraform {
+  backend "local" {}
   required_providers {
     github = {
-      source  = "hashicorp/github"
+      source  = "integrations/github"
       version = "~> 4.4"
     }
     aws = {

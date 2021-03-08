@@ -53,7 +53,7 @@ resource "github_team_repository" "writer_teams" {
 # - only writer team can dismiss
 # - status checks must pass
 # - only the defined repo owner teams can push
-resource "github_branch_protection" "master" {
+resource "github_branch_protection_v3" "master" {
   branch         = "master"
   repository     = github_repository.github_repo.name
   enforce_admins = true
@@ -62,12 +62,12 @@ resource "github_branch_protection" "master" {
     strict   = var.strict
     contexts = var.required_status_checks
   }
+
   required_pull_request_reviews {
     dismiss_stale_reviews           = true
     required_approving_review_count = var.review_count
     require_code_owner_reviews      = true
     dismissal_teams                 = var.owner_teams
-
   }
 
   restrictions {
