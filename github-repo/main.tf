@@ -19,7 +19,7 @@ data "github_team" "writer_teams" {
 resource "github_repository" "github_repo" {
   name               = var.name
   description        = var.description
-  private            = false
+  visibility         = var.visibility
   has_wiki           = false
   has_downloads      = false
   has_issues         = false

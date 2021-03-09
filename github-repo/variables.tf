@@ -78,3 +78,9 @@ variable "delete_branch_on_merge" {
   default     = false
   description = "Automatically delete head branch after a pull request is merged"
 }
+
+variable "visibility" {
+  type = string
+  default = "public"
+  description = "Set public or privateness of the repo"
+}
