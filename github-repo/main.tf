@@ -45,7 +45,7 @@ resource "github_team_repository" "writer_teams" {
   permission = "push"
 }
 
-# set protection on the master branch
+# set protection on the primary branch
 # settings are:
 # - admins are not exempt
 # - stale reviews dismissed if a PR is updated
@@ -54,7 +54,7 @@ resource "github_team_repository" "writer_teams" {
 # - status checks must pass
 # - only the defined repo owner teams can push
 resource "github_branch_protection_v3" "master" {
-  branch         = "master"
+  branch         = var.primary_branch_name
   repository     = github_repository.github_repo.name
   enforce_admins = true
 

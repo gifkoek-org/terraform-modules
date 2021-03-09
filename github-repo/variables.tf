@@ -84,3 +84,9 @@ variable "visibility" {
   default     = "public"
   description = "Set public or privateness of the repo"
 }
+
+variable "primary_branch_name" {
+  type        = string
+  default     = "main"
+  description = "Allow setting primary branch name to distinguish between old (master) and new (main) default naming convention"
+}
