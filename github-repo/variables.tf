@@ -80,7 +80,7 @@ variable "delete_branch_on_merge" {
 }
 
 variable "visibility" {
-  type = string
-  default = "public"
+  type        = string
+  default     = "public"
   description = "Set public or privateness of the repo"
 }
